@@ -116,7 +116,7 @@ Below is the default configuration.  A partial or full custom configuration can 
 ex:
 
     url_mappings: { index : '/' }
-    "views/index.jade" -> yourserver.com
+    "views/index.jade" -> yourserver.com/ (or just yourserver.com)
 
 This mapping will apply to all relevant JS\CSS as well.  Values in `url_mappings` can be either a String, or an Array of String.
 
