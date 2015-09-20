@@ -3,7 +3,7 @@
     "javascripts_location": "javascripts",
     "javascripts_location_property": "__javascriptFile",
     "stylesheets_location": "stylesheets",
-    "stylesheets_location_property": "__stylsheetFile",
+    "stylesheets_location_property": "__stylesheetFile",
     "controllers_location": "controllers",
     "controller_result_property": "__data",
     "view_location_property": "__view",
