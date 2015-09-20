@@ -73,9 +73,9 @@ If a `.js` file with a name matching a view is found in the `public/javascripts`
 ex:
 
     "public/javascripts/dashboard.js" -> "views/dashboard.jade" -> yourserver.com/dashboard
-    res.locals.__javascriptFile === "/javascripts/dashboard.css"
-    "public/javascripts/user/profile.css" -> "views/user/profile.jade" -> yourserver.com/user/profile
-    res.locals.__javascriptFile === "/javascripts/user/profile.css"
+    res.locals.__javascriptFile === "/javascripts/dashboard.js"
+    "public/javascripts/user/profile.js" -> "views/user/profile.jade" -> yourserver.com/user/profile
+    res.locals.__javascriptFile === "/javascripts/user/profile.js"
 
 This is particularly useful if you use a module system like require.js and have a single entry point for all of your page's JS.
 
