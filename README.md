@@ -36,14 +36,16 @@ app.set('views', path.join(__dirname, 'views'));
     "views/dashboard.jade" -> yourserver.com/dashboard
     "views/user/profile.jade" -> yourserver.com/user/profile
     
+In order to aid in the rendering process, the name of the view file suitable for passing into `res.render` will be attached to res.locals[`view_location_property`]
+    
 ##### 2. Server-side logic ("controllers")
 
 If a `.js` file with a name matching a view is found in `controllers_location` (see configuration below), a corresponding controller will be registered for that view.
 
 ex:
 
-    "controllers/dashboard.js"
-    "views/dashboard.jade" -> yourserver.com/dashboard
+    "controllers/dashboard.js" -> "views/dashboard.jade" -> yourserver.com/dashboard
+    "controllers/user/profile.js" -> "views/user/profile.jade" -> yourserver.com/user/profile
 
 Controllers should be modules of the following format:
 
@@ -59,9 +61,10 @@ If a `.css` file with a name matching a view is found in `public_location`/`styl
 
 ex:
 
-    "public/stylesheets/dashboard.css"
-    "views/dashboard.jade" -> yourserver.com/dashboard
-    res.locals[`stylesheets_location_property`] === "/stylesheets/dashboard.css"
+    "public/stylesheets/dashboard.css" -> "views/dashboard.jade" -> yourserver.com/dashboard
+    res.locals.__stylsheetFile === "/stylesheets/dashboard.css"
+    "public/stylesheets/user/profile.css" -> "views/user/profile.jade" -> yourserver.com/user/profile
+    res.locals.__stylsheetFile === "/stylesheets/user/profile.css"
 
 ##### 4. JS
 
@@ -69,13 +72,32 @@ If a `.js` file with a name matching a view is found in `public_location`/`javas
 
 ex:
 
-    "public/javascripts/dashboard.js"
-    "views/dashboard.jade" -> yourserver.com/dashboard
-    res.locals[`javascripts_location_property`] === "/javascripts/dashboard.js"
+    "public/javascripts/dashboard.js" -> "views/dashboard.jade" -> yourserver.com/dashboard
+    res.locals.__javascriptFile === "/javascripts/dashboard.css"
+    "public/javascripts/user/profile.css" -> "views/user/profile.jade" -> yourserver.com/user/profile
+    res.locals.__javascriptFile === "/javascripts/user/profile.css"
+
+This is particularly useful if you use a module system like require.js and have a single entry point for all of your page's JS.
+
+## How Do I Hook This Up To My Templates?
+
+In order to remain unopinionated about your chosen templating engine, it's up to you to provide the final injection point of JS\CSS into your HTML.  The best practice would be to set up a single master template like this:
+
+```html
+<html>
+<head>
+(if stylesheet path)<link rel="stylesheet" href="stylesheet path">
+</head>
+<body>
+    (insert body block based on data from controller)
+    (if javascript path)<script src="javascript path" type="text/javascript"></script>
+</body>
+</html>
+```
 
 ## Configuration
 
-Below is the default configuration, a partial or full configuration can be specified (see Usage section above).  Partial configurations will be merged against this default.
+Below is the default configuration, a partial or full custom configuration can be specified (see Usage section above).  Partial configurations will be merged against this default.
 
     {
         public_location: 'public',
@@ -88,6 +110,15 @@ Below is the default configuration, a partial or full configuration can be speci
         view_location_property: '__view',
         url_mappings: {}
     }
+    
+`url_mappings` allows any set of page components to be mapped to any URL.
+
+ex:
+
+    url_mappings: { index : '/' }
+    "views/index.jade" -> yourserver.com
+
+This mapping will apply to all relevant JS\CSS as well.  Values in `url_mappings` can be either a String, or an Array of String.
 
 ## Tests
 
