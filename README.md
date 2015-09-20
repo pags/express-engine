@@ -19,7 +19,7 @@ Internally, this library only uses `app.get`, and should be compatible with any 
 
 ## Usage
 
-`engine(app, [optional partial or full configuration]);`
+`engine(app, optional partial or full configuration);`
 
 The four components of a page are injected as follows:
 
