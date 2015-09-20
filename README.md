@@ -7,7 +7,7 @@ This library is based on the idea that there are at most four main components in
 3. CSS (optional)
 4. JS (optional)
 
-Rather than manually wire these things together, why not use filesystem convention to automate the process?  Page components can be automatically injected if applicable, and as a bonus your file layout will be organized and consistent.
+Rather than manually wire these things together, why not use filesystem convention to automate the process?  This allows page components to be automatically injected if applicable, and as a bonus your file layout will be organized and consistent.
 
 ## What Does This Actually Do?
 
