@@ -81,7 +81,7 @@ This is particularly useful if you use a module system like require.js and have 
 
 ## How Do I Hook This Up To My Templates?
 
-In order to remain unopinionated about your chosen templating engine, it's up to you to provide the final injection point of JS\CSS into your HTML.  The best practice would be to set up a single master template like this:
+In order for this library to remain unopinionated about your chosen templating engine, it's up to you to provide the final injection point of JS\CSS into your HTML.  The best practice would be to set up a single master template like this:
 
 ```html
 <html>
