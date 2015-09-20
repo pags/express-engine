@@ -1,6 +1,6 @@
 ## Philosophy
 
-This library is based on the idea that there are at most four main components to rendering a web page:
+This library is based on the idea that there are at most four main components involved in rendering a web page:
 
 1. The HTML itself, or a template that produces the HTML (given)
 2. Some server-side logic to run when the page is requested (optional)
