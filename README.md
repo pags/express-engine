@@ -11,7 +11,7 @@ Rather than manually wire these things together, why not use filesystem conventi
 
 ## What Does This Actually Do?
 
-This library simply injects middleware to run server-side code for a page, as well as expose the paths of JS\CSS in a way that can be consumed by your chosen view engine (HTML templating library).  It does not call `res.render` \ `app.render` or serve requests in any way.  You are free to inject your own middleware after `express-engine` in order to further process what this library provides before finally rendering your page.
+This library simply injects middleware to run server-side code, as well as expose paths to JS\CSS, in a way that can be consumed by your chosen view engine (HTML templating library).  It does not call `res.render` \ `app.render` or send HTTP responses.  Responses must be sent as usual and you are free to inject your own middleware after `express-engine` in order to further process what this library provides.
 
 ## Express Compatibility
 
