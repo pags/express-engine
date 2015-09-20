@@ -36,7 +36,7 @@ app.set('views', path.join(__dirname, 'views'));
     "views/dashboard.jade" -> yourserver.com/dashboard
     "views/user/profile.jade" -> yourserver.com/user/profile
     
-In order to aid in the rendering process, the name of the view file suitable for passing into `res.render` will be attached to res.locals[`view_location_property`]
+In order to aid in the rendering process, the name of the view file suitable for passing into `res.render` will be attached to res.locals[`view_location_property`] (see configuration below)
     
 ##### 2. Server-side logic ("controllers")
 
