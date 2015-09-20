@@ -97,7 +97,7 @@ In order for this library to remain unopinionated about your chosen templating e
 
 ## Configuration
 
-Below is the default configuration, a partial or full custom configuration can be specified (see Usage section above).  Partial configurations will be merged against this default.
+Below is the default configuration.  A partial or full custom configuration can be specified (see Usage section above).  Partial configurations will be merged against the default.
 
     {
         public_location: 'public',
