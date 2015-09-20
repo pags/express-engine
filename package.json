@@ -1,0 +1,34 @@
+{
+    "name": "express-engine",
+    "version": "1.0.0",
+    "description": "Convention-based page scaffolding for Express.",
+    "main": "index.js",
+    "scripts": {
+        "test": "cd test; mocha test.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pags/express-engine"
+    },
+    "keywords": [
+        "express",
+        "framework",
+        "scaffolding",
+        "engine",
+        "router",
+        "routing",
+        "stylesheets",
+        "css",
+        "boilerplate",
+        "assets",
+        "static"
+    ],
+    "author": "Justin Pagano",
+    "license": "MIT",
+    "devDependencies": {
+        "chai": "^3.2.0",
+        "express": "^4.13.3",
+        "mocha": "^2.3.2",
+        "supertest": "^1.1.0"
+    }
+}
