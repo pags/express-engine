@@ -57,7 +57,7 @@ It is important to note that `callback` here is a standard Node.js-style callbac
 
 ##### 3. CSS
 
-If a `.css` file with a name matching a view is found in `public\stylesheets` directory (or whatever is configured under `public_location`/`stylesheets_location`), the path to the css file (minus the `public_location` prefix) will be attached to res.locals.__stylsheetFile (or whatever is configured under `stylesheets_location_property`)
+If a `.css` file with a name matching a view is found in `public/stylesheets` directory (or whatever is configured under `public_location`/`stylesheets_location`), the path to the css file (minus the `public_location` prefix) will be attached to res.locals.__stylsheetFile (or whatever is configured under `stylesheets_location_property`)
 
 ex:
 
@@ -68,7 +68,7 @@ ex:
 
 ##### 4. JS
 
-If a `.js` file with a name matching a view is found in the `public\javascripts` directory (or whatever is configured under `public_location`/`javascripts_location`), the path to the js file (minus the `public_location` prefix) will be attached to res.locals.__javascriptFile (or whatever is configured under `javascripts_location_property`)
+If a `.js` file with a name matching a view is found in the `public/javascripts` directory (or whatever is configured under `public_location`/`javascripts_location`), the path to the js file (minus the `public_location` prefix) will be attached to res.locals.__javascriptFile (or whatever is configured under `javascripts_location_property`)
 
 ex:
 
