@@ -36,11 +36,11 @@ app.set('views', path.join(__dirname, 'views'));
     "views/dashboard.jade" -> yourserver.com/dashboard
     "views/user/profile.jade" -> yourserver.com/user/profile
     
-In order to aid in the rendering process, the name of the view file suitable for passing into `res.render` will be attached to res.locals[`view_location_property`] (see configuration below)
+In order to aid in the rendering process, the name of the view file suitable for passing into `res.render` will be attached to res.locals.__view (or whatever is configured under `view_location_property`)
     
 ##### 2. Server-side logic ("controllers")
 
-If a `.js` file with a name matching a view is found in `controllers_location` (see configuration below), a corresponding controller will be registered for that view.
+If a `.js` file with a name matching a view is found in the `controllers` directory (or whatever is configured under `controllers_location`), a corresponding controller will be registered for that view.
 
 ex:
 
@@ -53,11 +53,11 @@ Controllers should be modules of the following format:
 module.exports = function(req, res, callback) { ... }
 ```
 
-It is important to note that `callback` here is a standard Node.js-style callback, *not* an Express callback (commonly `next`).  `callback(error)` will result in `next(error)` being called under the covers, but `callback(null, someData)` will attach `someData` to res.locals[`controller_result_property`] (see configuration below) and then call `next()` under the covers with no arguments.
+It is important to note that `callback` here is a standard Node.js-style callback, *not* an Express callback (commonly `next`).  `callback(error)` will result in `next(error)` being called under the covers, but `callback(null, someData)` will attach `someData` to res.locals.__data (or whatever is configured under `controller_result_property`) and then call `next()` under the covers with no arguments.
 
 ##### 3. CSS
 
-If a `.css` file with a name matching a view is found in `public_location`/`stylesheets_location` (see configuration below), the path to the css file (minus the `public_location` prefix) will be attached to res.locals[`stylesheets_location_property`]
+If a `.css` file with a name matching a view is found in `public\stylesheets` directory (or whatever is configured under `public_location`/`stylesheets_location`), the path to the css file (minus the `public_location` prefix) will be attached to res.locals.__stylsheetFile (or whatever is configured under `stylesheets_location_property`)
 
 ex:
 
@@ -68,7 +68,7 @@ ex:
 
 ##### 4. JS
 
-If a `.js` file with a name matching a view is found in `public_location`/`javascripts_location` (see configuration below), the path to the css file (minus the `public_location` prefix) will be attached to res.locals[`javascripts_location_property`]
+If a `.js` file with a name matching a view is found in the `public\javascripts` directory (or whatever is configured under `public_location`/`javascripts_location`), the path to the js file (minus the `public_location` prefix) will be attached to res.locals.__javascriptFile (or whatever is configured under `javascripts_location_property`)
 
 ex:
 
