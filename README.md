@@ -57,14 +57,14 @@ It is important to note that `callback` here is a standard Node.js-style callbac
 
 ##### 3. CSS
 
-If a `.css` file with a name matching a view is found in `public/stylesheets` directory (or whatever is configured under `public_location`/`stylesheets_location`), the path to the css file (minus the `public_location` prefix) will be attached to res.locals.__stylsheetFile (or whatever is configured under `stylesheets_location_property`)
+If a `.css` file with a name matching a view is found in `public/stylesheets` directory (or whatever is configured under `public_location`/`stylesheets_location`), the path to the css file (minus the `public_location` prefix) will be attached to res.locals.__stylesheetFile (or whatever is configured under `stylesheets_location_property`)
 
 ex:
 
     "public/stylesheets/dashboard.css" -> "views/dashboard.jade" -> yourserver.com/dashboard
-    res.locals.__stylsheetFile === "/stylesheets/dashboard.css"
+    res.locals.__stylesheetFile === "/stylesheets/dashboard.css"
     "public/stylesheets/user/profile.css" -> "views/user/profile.jade" -> yourserver.com/user/profile
-    res.locals.__stylsheetFile === "/stylesheets/user/profile.css"
+    res.locals.__stylesheetFile === "/stylesheets/user/profile.css"
 
 ##### 4. JS
 
@@ -104,7 +104,7 @@ Below is the default configuration, a partial or full custom configuration can b
         javascripts_location: 'javascripts',
         javascripts_location_property: '__javascriptFile',
         stylesheets_location: 'stylesheets',
-        stylesheets_location_property: '__stylsheetFile',
+        stylesheets_location_property: '__stylesheetFile',
         controllers_location: 'controllers',
         controller_result_property: '__data',
         view_location_property: '__view',
