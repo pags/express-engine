@@ -23,7 +23,7 @@ Internally, this library only uses `app.get`, and should be compatible with any 
 
 The four components of a page are injected as follows:
 
-1. HTML
+##### 1. HTML
 
 For each file found in `app.get('views')`, a corresponding URL will be registered.
 
@@ -36,7 +36,7 @@ app.set('views', path.join(__dirname, 'views'));
     "views/dashboard.jade" -> yourserver.com/dashboard
     "views/user/profile.jade" -> yourserver.com/user/profile
     
-2. Server-side logic ("controllers")
+##### 2. Server-side logic ("controllers")
 
 If a `.js` file with a name matching a view is found in `controllers_location` (see configuration below), a corresponding controller will be registered for that view.
 
@@ -53,7 +53,7 @@ module.exports = function(req, res, callback) { ... }
 
 It is important to note that `callback` here is a standard Node.js-style callback, *not* an Express callback (commonly `next`).  `callback(error)` will result in `next(error)` being called under the covers, but `callback(null, someData)` will attach `someData` to res.locals[`controller_result_property`] (see configuration below) and then call `next()` under the covers with no arguments.
 
-3. CSS
+##### 3. CSS
 
 If a `.css` file with a name matching a view is found in `public_location`/`stylesheets_location` (see configuration below), the path to the css file (minus the `public_location` prefix) will be attached to res.locals[`stylesheets_location_property`]
 
@@ -63,7 +63,7 @@ ex:
     "views/dashboard.jade" -> yourserver.com/dashboard
     res.locals[`stylesheets_location_property`] === "/stylesheets/dashboard.css"
 
-4. JS
+##### 4. JS
 
 If a `.js` file with a name matching a view is found in `public_location`/`javascripts_location` (see configuration below), the path to the css file (minus the `public_location` prefix) will be attached to res.locals[`javascripts_location_property`]
 
