@@ -74,11 +74,11 @@ module.exports = function(app, userConfig) {
                                 if (!res.headersSent) {
                                     if (err) {
                                         next(err);
+                                    } else {
+                                        res.locals[config.controller_result_property] = result;
+
+                                        next();
                                     }
-
-                                    res.locals[config.controller_result_property] = result;
-
-                                    next();
                                 }
                             });
                         });
