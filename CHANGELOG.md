@@ -1,3 +1,3 @@
-1.0.0
+1.0.1
 =====
-Initial release.
+* Fix duplicate calls to "next" when back-end controllers fail.
